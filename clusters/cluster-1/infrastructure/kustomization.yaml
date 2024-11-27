@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
 - argocd-ns.yaml
 - argocd.yaml
+- argocd-cm.yaml
+
 
 patchesStrategicMerge:
 - argocd-cm.yaml
