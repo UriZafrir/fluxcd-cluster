@@ -9,6 +9,3 @@ helmCharts:
   namespace: cert-manager
   releaseName: cert-manager
   includeCRDs: true
-
-resources:
-- cert-manager-ns.yaml
