@@ -12,6 +12,9 @@ spec:
   secretRef:
     name: flux-system
   url: ssh://git@github.com/UriZafrir/fluxcd-cluster.git
+  ignore: |
+    # exclude docs folder
+    cluster/cluster-1/argo/*
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
