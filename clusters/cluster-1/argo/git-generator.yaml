@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: git@github.com:UriZafrir/fluxcd-cluster.git
+      revision: HEAD
+      directories:
+      - path: clusters/cluster-1/argo/*
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:UriZafrir/fluxcd-cluster.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{.path.basename}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
