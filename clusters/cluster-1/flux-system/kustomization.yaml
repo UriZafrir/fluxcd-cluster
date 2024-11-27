@@ -6,3 +6,4 @@ resources:
 - capacitator.yaml
 - sealed-secrets.yaml
 - tf-controller.yaml
+- argocd.yaml
