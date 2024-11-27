@@ -22,10 +22,6 @@ spec:
         repoURL: https://github.com/UriZafrir/fluxcd-cluster.git
         targetRevision: HEAD
         path: '{{.path.path}}'
-        helm:
-          parameters:
-            - name: installCRDs
-              value: "true"
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{.path.basename}}'
