@@ -8,7 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: ssh://git@github.com:UriZafrir/fluxcd-cluster.git
+      repoURL: https://github.com/UriZafrir/fluxcd-cluster.git
       revision: HEAD
       directories:
       - path: clusters/cluster-1/argo/*
@@ -18,7 +18,7 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: ssh://git@github.com:UriZafrir/fluxcd-cluster.git
+        repoURL: https://github.com/UriZafrir/fluxcd-cluster.git
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
